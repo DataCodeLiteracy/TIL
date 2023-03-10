@@ -27,6 +27,7 @@ const getLocalStorage = (key) => {
  */
 
 const liPushArr = (arr, li) => {
+  // isCompleted 의도 수정
   if (li.parentNode === initVar.todoItemsList) {
     li.dataset.isCompleted = true;
   } else {
@@ -209,18 +210,17 @@ const init = () => {
     const item =
       todos.find((todo) => todo.id === itemId) ||
       done.find((compl) => compl.id === itemId);
-    if (item) {
-      const contents = new initVar.Contents(
-        item.id,
-        item.isCompleted,
-        item.content
-      );
-      const listItem = contents.createTodoItem();
-      if (item.isCompleted === "true") {
-        initVar.completedItemsList.appendChild(listItem);
-      } else {
-        initVar.todoItemsList.appendChild(listItem);
-      }
+    const contents = new initVar.Contents(
+      item.id,
+      item.isCompleted,
+      item.content
+    );
+    // if문 깊이 관련 수정
+    const listItem = contents.createTodoItem();
+    if (item && item.isCompleted === "true") {
+      initVar.completedItemsList.appendChild(listItem);
+    } else {
+      initVar.todoItemsList.appendChild(listItem);
     }
   });
 };
