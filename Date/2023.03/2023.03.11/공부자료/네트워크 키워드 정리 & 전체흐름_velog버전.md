@@ -236,24 +236,26 @@
 
 - `라우터 B`의 라우팅 테이블을 확인해 보면 `목적지 IP 주소`의 경로를 알 수 있어, 라우팅이 가능
 - 이후 현재의 `출발지 IP 주소` 172.16.10.1을 `라우터 B의 내부 IP 주소`인 192.168.1.10로 변경
-  ![](https://velog.velcdn.com/images/dataliteracy/post/43503417-26d1-4c88-b3a6-649abcd3233d/image.png)
+ ![](https://velog.velcdn.com/images/dataliteracy/post/43503417-26d1-4c88-b3a6-649abcd3233d/image.png)
 
 - 데이터 링크 계층에 전달하여 스위치에 전달되도록 이더넛 헤더와 트레일러를 붙임
-  ![](https://velog.velcdn.com/images/dataliteracy/post/f0403ada-5ac5-4a24-9b21-847d4ce00b8a/image.png)
+![](https://velog.velcdn.com/images/dataliteracy/post/f0403ada-5ac5-4a24-9b21-847d4ce00b8a/image.png)
 
 - 이후 물리 계층에서 데이터를 전기 신호로 변환하여 `스위치 B`로 전달
 - `스위치 B`는 전기 신호를 데이터 링크 계층에서 처리하고 웹 서버에서 데이터를 전기 신호로 전달
 - 데이터가 전기 신호로 `웹 서버`에 도착
 - 웹 서버는 데이터 링크 계층에서 `이더넷 프레임`의 `목적지 MAC 주소`와 `자신의 MAC 주소`를 비교
-  ![](https://velog.velcdn.com/images/dataliteracy/post/8ee30678-85a3-4e48-ae95-d3a9eda597a1/image.png)
+ ![](https://velog.velcdn.com/images/dataliteracy/post/8ee30678-85a3-4e48-ae95-d3a9eda597a1/image.png)
 - 주소가 같으면 `이더넷 헤더`와 `트레일러`를 분리하고 네트워크 계층에 전달
 - 네트워크 계층에서는 `목적지 IP 주소`와 `웹 서버의 IP 주소`가 같은지 확인
-  ![](https://velog.velcdn.com/images/dataliteracy/post/a1df2a09-2412-44d4-a3de-ce6ad13f11db/image.png)
+ ![](https://velog.velcdn.com/images/dataliteracy/post/a1df2a09-2412-44d4-a3de-ce6ad13f11db/image.png)
+  
 - 주소가 같으면 `IP 헤더`를 분리하고 전송 계층에 전달
 - 전송 계층에서는 `목적지 포트 번호`를 확인하여 어떤 `애플리케이션`으로 전달해야되는지 판단
-  ![](https://velog.velcdn.com/images/dataliteracy/post/b42ac7d3-3257-4ee8-92af-a63a51da2426/image.png)
+
+ ![](https://velog.velcdn.com/images/dataliteracy/post/b42ac7d3-3257-4ee8-92af-a63a51da2426/image.png)
 - 이후 `TCP 헤더`를 분리하여 응용 계층에 전달
-  ![](https://velog.velcdn.com/images/dataliteracy/post/04961ea9-2eca-4b5d-9c2f-d25b39f33d29/image.png)
+ ![](https://velog.velcdn.com/images/dataliteracy/post/04961ea9-2eca-4b5d-9c2f-d25b39f33d29/image.png)
 - 최종적으로 응용 계층에 도착
 
 지금까지의 여정이 웹 브라우저에서 URL을 입력해서 서버에 html데이터를 요청하는 과정이다.
