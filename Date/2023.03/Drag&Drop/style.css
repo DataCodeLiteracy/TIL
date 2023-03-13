@@ -1,0 +1,38 @@
+#dragElement {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  cursor: move;
+}
+
+#dropZone {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+}
+
+/* ------------------------------------------------------------ */
+
+body {
+  /* 사용자가 예제의 텍스트를 선택하지 못하도록 */
+  user-select: none;
+}
+
+#draggable {
+  text-align: center;
+  background: white;
+}
+
+#container {
+  width: 200px;
+  height: 20px;
+  background: blueviolet;
+  padding: 10px;
+}
+
+.dragging {
+  opacity: 0.5;
+}
