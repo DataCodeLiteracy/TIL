@@ -1,6 +1,5 @@
 # clientX, pageX, screenX, offsetX의 차이점
 
-- [clientX, pageX, screenX, offsetX의 차이점](#clientx-pagex-screenx-offsetx의-차이점)
 - [1. 이벤트가 발생한 위치값](#1-이벤트가-발생한-위치값)
 - [2. clientX, pageX, screenX, offsetX](#2-clientx-pagex-screenx-offsetx)
 
