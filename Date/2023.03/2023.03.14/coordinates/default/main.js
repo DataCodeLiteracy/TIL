@@ -1,5 +1,6 @@
 const horozontal = document.querySelector(".line.horozontal");
 const vertical = document.querySelector(".line.vertical");
+const target = document.querySelector(".target");
 const client = document.querySelector(".client");
 const page = document.querySelector(".page");
 const screen = document.querySelector(".screen");
@@ -14,34 +15,13 @@ document.addEventListener("mousemove", (e) => {
   const screenY = e.screenY;
   const offsetX = e.offsetX;
   const offsetY = e.offsetY;
-  // vertical.style.left = clientX + "px";
-  // horozontal.style.top = clientY + "px";
+  vertical.style.left = clientX + "px";
+  horozontal.style.top = clientY + "px";
+  target.style.left = clientX + "px";
+  target.style.top = clientY + "px";
 
   client.innerHTML = `clientX : ${clientX}, clientY : ${clientY}`;
   page.innerHTML = `pageX : ${pageX}, pageY : ${pageY}`;
   screen.innerHTML = `screenX : ${screenX}, screenY : ${screenY}`;
   offset.innerHTML = `offsetX : ${offsetX}, offsetY : ${offsetY}`;
-});
-
-// -----------------------------------------------------------------------
-
-const divItems = document.querySelectorAll("section > div");
-
-divItems.forEach((item) => {
-  item.addEventListener("dragstart", (e) => {
-    const rect = item.getBoundingClientRect();
-    console.log(rect);
-    console.log(`e.clientX : ${e.clientX}`);
-    console.log(`e.clientY : ${e.clientY}`);
-    console.log(`e.pageX : ${e.pageX}`);
-    console.log(`e.pageY : ${e.pageY}`);
-    console.log(`e.screenX : ${e.screenX}`);
-    console.log(`e.screenY : ${e.screenY}`);
-    console.log(`e.offsetX : ${e.offsetX}`);
-    console.log(`e.offsetY : ${e.offsetY}`);
-    console.log("dragstart Event");
-  });
-  item.addEventListener("click", () => {
-    console.log(1);
-  });
 });

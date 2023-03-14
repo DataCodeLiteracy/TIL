@@ -1,3 +1,5 @@
+const horozontal = document.querySelector(".line.horozontal");
+const vertical = document.querySelector(".line.vertical");
 const target = document.querySelector(".target");
 const client = document.querySelector(".client");
 const page = document.querySelector(".page");
@@ -13,6 +15,8 @@ document.addEventListener("mousemove", (e) => {
   const screenY = e.screenY;
   const offsetX = e.offsetX;
   const offsetY = e.offsetY;
+  vertical.style.left = clientX + "px";
+  horozontal.style.top = clientY + "px";
   target.style.left = clientX + "px";
   target.style.top = clientY + "px";
 

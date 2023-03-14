@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Sawarabi+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="Kanban.css" />
+    <script
+      src="https://kit.fontawesome.com/b8ead2406e.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>KanBanBoard</title>
+  </head>
+  <body>
+    <h1>Kanban Board</h1>
+    <div class="container">
+      <nav class="navBar">
+        <div class="navBar-todo">
+          <button class="navBar-btn">
+            <i class="fa-regular fa-circle"></i>
+          </button>
+          <div class="navBar-todo__txt">
+            <span>할 일</span>
+            <span class="count">21</span>
+          </div>
+          <button class="navBar-btn all">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+          <button class="navBar-btn">
+            <i class="fa-regular fa-plus"></i>
+          </button>
+        </div>
+        <div class="navBar-inprogress">
+          <button class="navBar-btn">
+            <i class="fa-regular fa-circle-play"></i>
+          </button>
+          <div class="navBar-inprogress__txt">
+            <span>진행 중</span>
+            <span class="count">1</span>
+          </div>
+          <button class="navBar-btn all">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+          <button class="navBar-btn">
+            <i class="fa-regular fa-plus"></i>
+          </button>
+        </div>
+        <div class="navBar-done">
+          <button class="navBar-btn">
+            <i class="fa-regular fa-circle-check"></i>
+          </button>
+          <div class="navBar-done__txt">
+            <span>완료</span>
+            <span class="count">2</span>
+          </div>
+          <button class="navBar-btn all">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+          <button class="navBar-btn">
+            <i class="fa-regular fa-plus"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <section class="main">
+        <div class="todo">
+          <ul class="todo-items">
+            <li>
+              <div class="main-txt">
+                GitHub Pages 만들기
+              </div>
+              <button class="main-btn">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </li>
+            <li>
+              <div class="main-txt">
+                메인페이지 F-Lab 챌린지 참여하기
+              </div>
+              <button class="main-btn">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </li>
+          </ul>
+          <div class="addBtnBox">
+            <button class="main-btn">
+              <i class="fa-regular fa-plus"></i>
+            </button>
+            <span>새로 만들기</span>
+          </div>
+        </div>
+        <div class="inprogress">
+          <div class="addBtnBox">
+            <button class="main-btn">
+              <i class="fa-regular fa-plus"></i>
+            </button>
+            <span>새로 만들기</span>
+          </div>
+        </div>
+        <div class="done">
+          <ul class="done-items">
+            <li>
+              <div class="main-txt">
+                메인페이지 꾸미기
+              </div>
+              <button class="main-btn">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </li>
+          </ul>
+          <div class="addBtnBox">
+            <button class="main-btn">
+              <i class="fa-regular fa-plus"></i>
+            </button>
+            <span>새로 만들기</span>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

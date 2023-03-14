@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Offset Example</title>
+    <style>
+      #parent {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+      }
+
+      #child {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child"></div>
+    </div>
+
+    <script>
+      let parent = document.querySelector('#parent')
+      let child = document.querySelector('#child')
+
+      console.log('Parent OffsetTop: ' + parent.offsetTop)
+      console.log('Child OffsetTop: ' + child.offsetTop)
+      parent.style.top = '50px'
+
+      console.log('Parent OffsetTop: ' + parent.offsetTop)
+      console.log('Child OffsetTop: ' + child.offsetTop)
+      parent.style.left = '50px'
+    </script>
+  </body>
+</html>
