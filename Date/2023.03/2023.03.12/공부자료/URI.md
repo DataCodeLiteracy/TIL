@@ -1,3 +1,18 @@
+- [1. URI의 개념](#1-uri의-개념)
+  - [1.1 URI와 URL의 차이점](#11-uri와-url의-차이점)
+  - [1.2 URI에서 URN으로](#12-uri에서-urn으로)
+- [2. URL의 문법](#2-url의-문법)
+  - [2.1 URL 컴포넌트들](#21-url-컴포넌트들)
+  - [2.2 여러가지 스킴](#22-여러가지-스킴)
+- [3. URI의 활용](#3-uri의-활용)
+- [4. 기타 URI 정보](#4-기타-uri-정보)
+  - [4.1 단축 URL](#41-단축-url)
+  - [4.2 안전하지 않은 문자](#42-안전하지-않은-문자)
+  - [4.3 프락시와 URL](#43-프락시와-url)
+  - [요약](#요약)
+
+---
+
 # 1. URI의 개념
 
 URI(Uniform Resource Identifier)는 인터넷에서 자원을 나타내는 유일한 식별자입니다. URI는 URL과 URN으로 나누어집니다.
@@ -72,9 +87,20 @@ URL로 웹 상의 모든 리소스를 찾을 수 있지만, 그 리소스들은 
 URI는 다음과 같은 방식으로 활용됩니다.
 
 1. 웹 페이지의 주소로 사용되어 브라우저에서 콘텐츠를 가져올 수 있습니다.
+   - 예: **[https://www.google.com/search?q=python](https://www.google.com/search?q=python)**, **[https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)**
+   - 브라우저에서 URI를 사용하여 인터넷 상의 웹 페이지를 가져오거나 해당 페이지의 특정 부분에 대한 콘텐츠를 요청할 수 있습니다.
 2. API의 엔드포인트로 사용되어 다른 애플리케이션과 데이터를 공유할 수 있습니다.
+   - 예: **[https://api.github.com/users/octocat](https://api.github.com/users/octocat)**, **[https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=YOUR_API_KEY](https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=YOUR_API_KEY)**
+   - URI를 사용하여 다른 애플리케이션과 데이터를 공유할 수 있습니다. API 엔드포인트는 요청을 수신하고 데이터를 반환하기 위한 URI입니다.
 3. 인터넷에서 자원을 식별하기 위해 사용됩니다.
+   - 예: **[https://www.wikipedia.org/wiki/URI](https://www.wikipedia.org/wiki/URI)**, ftp://ftp.gnu.org/gnu/gzip/gzip-1.10.tar.gz
+   - URI는 인터넷에서 자원을 식별하기 위한 표준이며, 인터넷 상의 모든 자원은 URI를 통해 식별됩니다.
 4. 웹 검색 엔진에서 페이지를 색인하기 위해 사용됩니다.
+   - 예: **[https://www.google.com/search?q=python](https://www.google.com/search?q=python)**
+   - URI를 사용하여 웹 검색 엔진이 인터넷 상의 웹 페이지를 검색하고 색인할 수 있습니다. URI는 검색 엔진에서 특정 페이지에 대한 정보를 찾는 데 필요한 키워드로 사용됩니다.
+   - 웹 검색 엔진은 수많은 웹 페이지를 수집하고 분석하여 사용자에게 최적의 검색 결과를 제공하기 위해 노력합니다. 이러한 역할을 수행하기 위해서는 검색 엔진이 인터넷 상의 모든 웹 페이지를 색인하고 분류할 수 있어야 합니다. URI는 이러한 작업에서 중요한 역할을 합니다.
+     웹 검색 엔진은 크롤러라는 프로그램을 사용하여 웹 페이지를 수집합니다. 이때 크롤러는 시작점으로부터 URI를 따라 웹 페이지를 따라가며 정보를 수집합니다. 예를 들어, 검색어 'python'을 검색하는 경우 Google 검색 엔진은 "**[https://www.google.com/search?q=python"이라는](https://www.google.com/search?q=python%22%EC%9D%B4%EB%9D%BC%EB%8A%94)** URI를 사용하여 검색 결과를 반환합니다.
+     검색 엔진은 URI에서 검색어와 관련된 페이지를 찾아서 색인합니다. 이후에 사용자가 검색어를 입력하면 검색 엔진은 색인된 페이지에서 검색어와 일치하는 결과를 찾아서 사용자에게 보여줍니다. URI는 검색 엔진에서 페이지를 식별하고 분류하는 데 필요한 중요한 요소입니다.
 
 URI는 인터넷에서 리소스를 고유하게 식별하는 중요한 수단입니다. URI를 사용하여 인터넷 상의 다양한 리소스를 쉽게 찾고 공유할 수 있습니다.
 
