@@ -10,6 +10,7 @@ const compression = require('compression');
 const sanitizeHtml = require('sanitize-html');
 const template = require('./lib/template.js');
 
+app.use(express.static('src'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 // app.use(function(req, res, next) {
@@ -32,7 +33,9 @@ app.get('/', (req, res) => {
   const html = template.HTML(
     title,
     list,
-    `<h2>${title}</h2>${description}`,
+    `<h2>${title}</h2>${description}
+    <img src="/images/coding.jpg" style="width:300px; display:block; margin-top:10px;">
+    `,
     '<a href="/create">create</a>',
   );
   res.send(html);
