@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const port = 3000;
+const port = 5500;
 const fs = require('fs');
 const template = require('./lib/template.js');
 
@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/page', (req, res) => {
-  res.send('/page');
+app.get('/page/:pageId/:chapterId', (req, res) => {
+  res.send(req.params);
 });
 
 app.listen(port, () => {
