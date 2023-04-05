@@ -5,6 +5,11 @@ const port = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+
+const helmet = require('helmet');
+
+app.use(helmet());
+
 const indexRouter = require('./routes/index.js');
 const topicRouter = require('./routes/topic.js');
 
