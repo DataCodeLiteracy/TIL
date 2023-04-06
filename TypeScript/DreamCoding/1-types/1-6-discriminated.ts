@@ -7,6 +7,12 @@
     };
   }
 
+  type FailState = {
+    result: 'fail';
+    reason: string;
+  }
+
+
   let success: SuccessState = {
     result: 'success',
     response: { body: '성공이다!!' }
@@ -16,10 +22,6 @@
     reason: '실패다!!'
   }
 
-  type FailState = {
-    result: 'fail';
-    reason: string;
-  }
   type LoginState = SuccessState | FailState
   function login(): LoginState {
     return {
