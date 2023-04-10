@@ -1,34 +1,35 @@
-type StackInfo = {
-  index: number;
+interface IStack {
+  readonly size: number;
+  push(item: string): void;
+  pop(): string;
+}
+
+class StackNode {
   item: string;
-};
-
-class Stack {
-  length: number;
-  constructor(length: number) {
-    this.length = length;
-  }
-
-  static stackObject(length: number): Stack {
-    const stack = new Stack(length);
-    return stack;
-  }
-
-  push(item: string): StackInfo {
-    return {
-      index: Stack.length,
-      item
-    };
-  }
-  pop(item: string): StackInfo {
-    return {
-      index: Stack.length,
-      item: "JongHyun"
-    };
+  next: string | null;
+  constructor(item: string, next: string | null) {
+    this.item = item;
+    this.next = null;
   }
 }
 
-const stack = Stack.stackObject(20);
-console.log(stack.push("Kim"));
-console.log(stack.push("Lee"));
-console.log(stack);
+class Stack implements IStack {
+  head: string | null;
+  size: number;
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+  
+  push(item: string) {
+    if (this.head === null) {
+      this.head = new StackNode(item, this.head);
+
+    }
+  };
+  pop(): string {
+    return '1';
+  };
+}
+
+const stack = new Stack();
