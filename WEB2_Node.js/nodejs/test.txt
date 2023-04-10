@@ -1,0 +1,9 @@
+오브젝트 나열하는 중: 9, 완료.
+오브젝트 개수 세는 중: 100% (9/9), 완료.
+Delta compression using up to 8 threads
+오브젝트 압축하는 중: 100% (5/5), 완료.
+오브젝트 쓰는 중: 100% (6/6), 699 bytes | 699.00 KiB/s, 완료.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/DataCodeLiteracy/TIL.git
+861a89d..96e3913  DreamCoding -> DreamCoding
