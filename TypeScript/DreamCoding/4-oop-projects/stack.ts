@@ -1,35 +1,48 @@
-interface IStack {
+interface Stack {
   readonly size: number;
-  push(item: string): void;
+  push(value: string): void;
   pop(): string;
 }
 
-class StackNode {
-  item: string;
-  next: string | null;
-  constructor(item: string, next: string | null) {
-    this.item = item;
-    this.next = null;
-  }
-}
+type StackNode = {
+  readonly value: string;
+  // next: StackNode | undefined; // next는 있을 수도 있고 없을 수도 있다.
+  readonly next?: StackNode;
+  // readonly -> 불변성 유지?
+};
 
-class Stack implements IStack {
-  head: string | null;
-  size: number;
-  constructor() {
-    this.head = null;
-    this.size = 0;
+class StackImpl implements Stack {
+  private _size: number = 0;
+  private head?: StackNode;
+  get size() {
+    return this._size;
   }
-  
-  push(item: string) {
-    if (this.head === null) {
-      this.head = new StackNode(item, this.head);
-
-    }
-  };
+  push(value: string) {
+    const node: StackNode = { value, next: this.head };
+    this.head = node;
+    this._size++;
+  }
   pop(): string {
-    return '1';
-  };
+    // null == undefined, null !== undefined
+    if (this.head == null) {
+      throw new Error("Stack is Empty!");
+    }
+    const node = this.head;
+    this.head = node.next;
+    this._size--;
+    return node.value;
+  }
 }
 
-const stack = new Stack();
+const stack = new StackImpl();
+
+stack.push("sss");
+
+stack.push("ssss");
+stack.push("sssss");
+
+console.log(stack);
+
+while (stack.size !== 0) {
+  console.log(stack.pop());
+}
