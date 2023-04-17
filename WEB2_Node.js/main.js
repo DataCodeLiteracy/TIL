@@ -2,7 +2,8 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 
-const templateHTML = (title, list, body) => `
+const templateHTML = (title, list, body) => {
+  return `
     <!doctype html>
     <html>
       <head>
@@ -11,11 +12,13 @@ const templateHTML = (title, list, body) => `
       </head>
       <body>
         <h1><a href="/">WEB</a></h1>
-          ${list}
-          ${body}
+        ${list}
+        <a href="/create">create</a>
+        ${body}
       </body>
     </html>
   `;
+};
 
 const checkList = (fileList) => {
   let list = "<ol>";
@@ -24,21 +27,21 @@ const checkList = (fileList) => {
     list += `<li><a href="/?id=${fileList[i]}">${fileList[i]}</a></li>`;
     i++;
   }
-  return list;
   list += "</ol>";
+  return list;
 };
 
-const app = http.createServer((request, response) => {
-  const _url = request.url;
-  const queryData = url.parse(_url, true).query;
-  const { pathname } = url.parse(_url, true);
+const app = http.createServer(function (request, response) {
+  let _url = request.url;
+  let queryData = url.parse(_url, true).query;
+  let pathname = url.parse(_url, true).pathname;
 
   if (pathname === "/") {
     if (queryData.id === undefined) {
       fs.readdir("./data", (err, fileList) => {
-        const title = "Welcome";
-        const description = "Hello! Node.js!";
-        const list = checkList(fileList);
+        let title = "Welcome";
+        let description = "Hello! Node.js!";
+        let list = checkList(fileList);
         const template = templateHTML(
           title,
           list,
@@ -48,10 +51,10 @@ const app = http.createServer((request, response) => {
         response.end(template);
       });
     } else {
-      const title = queryData.id;
       fs.readdir("./data", (err, fileList) => {
-        fs.readFile(`data/${title}`, "utf8", (err, description) => {
-          const list = checkList(fileList);
+        fs.readFile(`data/${queryData.id}`, "utf8", (err, description) => {
+          let title = queryData.id;
+          let list = checkList(fileList);
           const template = templateHTML(
             title,
             list,
@@ -62,6 +65,30 @@ const app = http.createServer((request, response) => {
         });
       });
     }
+  } else if (pathname === "/create") {
+    fs.readdir("./data", (err, fileList) => {
+      let title = "WEB - create";
+      let list = checkList(fileList);
+      const template = templateHTML(
+        title,
+        list,
+        `
+          <form action="http://localhost:3000/process_create" method="post">
+            <p>
+              <input type="text" name="title" placeholder="title">
+            </p>
+            <p>
+              <textarea name="description" placeholder="description"></textarea>
+            </p>
+            <p>
+              <input type="submit">
+            </p>
+          </form>
+        `
+      );
+      response.writeHead(200);
+      response.end(template);
+    });
   } else {
     response.writeHead(404);
     response.end("Not Found!");
