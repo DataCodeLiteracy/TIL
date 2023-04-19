@@ -7,22 +7,25 @@
   };
 
   const BEANS_GRAM_PER_SHOT = 6;
-  // 전역으로 변수를 선언하게 되면 class안에서 변수를 사용할 때 헷갈리게 된다.
-  // class 안에서는 this를 명시해주어서 class 안에서 변수를 사용할 수 있게 해야 한다.
-  // let coffeeBeans = 300; // number 타입
-  // let totalSyrup = 3;
 
   class CoffeeMaker {
-    static BEANS_GRAM_PER_SHOT = 6;
-    coffeeBeans: number = 0;
-    totalSyrup = 1000;
+    private static BEANS_GRAM_PER_SHOT = 6;
+    private coffeeBeans: number = 0;
+    private totalSyrup = 1000;
 
-    constructor(coffeeBeans: number) {
+    private constructor(coffeeBeans: number) {
       this.coffeeBeans = coffeeBeans;
     }
 
     static hotAmericanoMachine(coffeeBeans: number): CoffeeMaker {
       return new CoffeeMaker(coffeeBeans);
+    }
+
+    fillCoffeeBeans(beans: number) {
+      if (beans < 0) {
+        throw new Error(`value for beans should be greater than 0`);
+      }
+      this.coffeeBeans += beans;
     }
 
     makeCoffee(shots: number, syrup: number): CoffeeCup {
@@ -51,15 +54,13 @@
         hasMilk: false,
         ice: false,
         shots,
-        syrup
+        syrup,
       };
     }
   }
 
-  const hotAmericano = new CoffeeMaker(200);
-  console.log(hotAmericano.makeCoffee(5, 2));
-
-  const hotAmericano2 = CoffeeMaker.hotAmericanoMachine(100);
-  console.log(hotAmericano2.totalSyrup);
-  console.log(hotAmericano2.makeCoffee(1, 5));
+  const maker = CoffeeMaker.hotAmericanoMachine(100);
+  console.log(maker);
+  maker.fillCoffeeBeans(100);
+  console.log(maker);
 }
