@@ -99,11 +99,11 @@ const app = http.createServer(function (request, response) {
       let post = qs.parse(body);
       let title = post.title;
       let description = post.description;
-      console.log(post.title);
-      console.log(post.description);
+      fs.writeFile(`data/${title}`, description, "utf8", (err) => {
+        response.writeHead(302, { Location: `/?id=${title}` });
+        response.end();
+      });
     });
-    response.writeHead(200);
-    response.end("success");
   } else {
     response.writeHead(404);
     response.end("Not Found!");
