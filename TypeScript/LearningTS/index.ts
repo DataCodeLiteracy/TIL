@@ -1,0 +1,1 @@
+console.blub("Noting is worth more than laughter.");
